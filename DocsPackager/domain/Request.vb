@@ -1,23 +1,24 @@
 ﻿Namespace domain
     Public Class Request
 
-        Private ft As String
-        Private sendTo As Destination
+        Private _docType As DocType
+        Private _destination As Destination
         Private _fileName As String
-        Private fileContent As String
-        Private zipFile As Boolean = False
-        Private config_id As String
+        Private _fileContent As String
+        Private _zippable As Boolean = False
+        Private _config_id As String
 
         ''' <summary>
         ''' Represents the extension file type for the received base64 encoded file. Will save the file with this extension. 
         ''' </summary>
         ''' <value>Extension of the destination file</value>
-        Public Property File_Type As String
+        ''' <remarks>Only registered values on <see cref="dtorres.dps.dpkg.domain.DocType">DocType</see> are acceptable</remarks>
+        Public Property File_Type As DocType
             Get
-                Return ft
+                Return _docType
             End Get
-            Set(value As String)
-                ft = value
+            Set(value As DocType)
+                _docType = value
             End Set
         End Property
 
@@ -28,10 +29,10 @@
         ''' <remarks>Only registered destinations in <see cref="dtorres.dps.dpkg.domain.Destination">Destination</see> enumeration.</remarks>
         Public Property File_Destination As Destination
             Get
-                Return sendTo
+                Return _destination
             End Get
             Set(value As Destination)
-                sendTo = value
+                _destination = value
             End Set
         End Property
 
@@ -41,10 +42,10 @@
         ''' <value>Base64 encoded file</value>
         Public Property File As String
             Get
-                Return fileContent
+                Return _fileContent
             End Get
             Set(value As String)
-                fileContent = value
+                _fileContent = value
             End Set
         End Property
 
@@ -55,10 +56,10 @@
         ''' <remarks>PRINT and FAX destinations are not suposed to be zipped.</remarks>
         Public Property Zippable As Boolean
             Get
-                Return zipFile
+                Return _zippable
             End Get
             Set(value As Boolean)
-                zipFile = value
+                _zippable = value
             End Set
         End Property
         ''' <summary>
@@ -66,10 +67,10 @@
         ''' </summary>
         Public Property Configuration_Id As String
             Get
-                Return config_id
+                Return _config_id
             End Get
             Set(value As String)
-                config_id = value
+                _config_id = value
             End Set
         End Property
 
@@ -98,6 +99,14 @@
         EMAIL
         FTP
         SYSFOLDER
+    End Enum
+    ''' <summary>
+    ''' Possible value for file type.
+    ''' </summary>
+    ''' <remarks>Specifies the document type that has been encoded in base64</remarks>
+    Public Enum DocType
+        PDF
+        DOC
     End Enum
 End Namespace
 
