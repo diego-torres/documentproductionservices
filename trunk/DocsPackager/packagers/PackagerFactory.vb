@@ -7,12 +7,15 @@ Namespace packagers
         Public Shared Function GetInstance(ByVal fileDestination As Destination) As IPackager
             Select Case fileDestination
                 Case Destination.EMAIL
-                    Throw New DocumentPackagerException("Not Implemented yet")
+                    Return New EmailPackager()
                 Case Destination.FAX
+                    ' TODO: Implement a fax method
                     Throw New DocumentPackagerException("Not Implemented yet")
                 Case Destination.FTP
+                    ' TODO: Implement an ftp method
                     Throw New DocumentPackagerException("Not Implemented yet")
                 Case Destination.PRINT
+                    ' TODO: Implement a printer method
                     Throw New DocumentPackagerException("Not Implemented yet")
                 Case Destination.SYSFOLDER
                     Return New HosterFileSystem()
