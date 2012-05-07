@@ -13,7 +13,7 @@ Namespace packagers.impl
 
             Dim bt64 As Byte() = System.Convert.FromBase64String(req.File)
 
-            Dim fileName As String = req.File_Name & "." & req.File_Type
+            Dim fileName As String = req.File_Name & "." & TranslateDocType(req.File_Type)
             Dim zipFileName As String = req.File_Name & ".zip"
 
             Dim confId As String = req.Configuration_Id
