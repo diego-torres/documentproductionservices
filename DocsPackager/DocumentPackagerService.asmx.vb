@@ -26,15 +26,7 @@ Public Class DocumentPackagerService
     ''' <remarks>The file provided should be coded in base64.</remarks>
     <WebMethod()> _
     Public Function PackageFile(req As Request) As Response
-        If req.Zippable And
-            (req.File_Destination = Destination.FAX Or req.File_Destination = Destination.PRINT) Then
-            Throw New DocumentPackagerException("Unable to zip file in a fax or printer.")
-        End If
-
-        'Convert the base64 to a byte array that will be packaged in the destination file.
-
         Dim packager As IPackager = PackagerFactory.GetInstance(req.File_Destination)
-
         packager.package(req)
         Return New Response("0", "Success")
     End Function

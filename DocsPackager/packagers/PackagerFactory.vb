@@ -8,15 +8,8 @@ Namespace packagers
             Select Case fileDestination
                 Case Destination.EMAIL
                     Return New EmailPackager()
-                Case Destination.FAX
-                    ' TODO: Implement a fax method
-                    Throw New DocumentPackagerException("Not Implemented yet")
                 Case Destination.FTP
-                    ' TODO: Implement an ftp method
-                    Throw New DocumentPackagerException("Not Implemented yet")
-                Case Destination.PRINT
-                    ' TODO: Implement a printer method
-                    Throw New DocumentPackagerException("Not Implemented yet")
+                    Return New FTPPackager()
                 Case Destination.SYSFOLDER
                     Return New HosterFileSystem()
                 Case Else

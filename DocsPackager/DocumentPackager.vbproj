@@ -126,6 +126,7 @@
     <Compile Include="domain\Response.vb" />
     <Compile Include="packagers\impl\BasePackager.vb" />
     <Compile Include="packagers\impl\EmailPackager.vb" />
+    <Compile Include="packagers\impl\FTPPackager.vb" />
     <Compile Include="packagers\impl\HosterFileSystem.vb" />
     <Compile Include="packagers\PackagerFactory.vb" />
     <Compile Include="packagers\IPackager.vb" />
@@ -139,7 +140,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="design\ClassDiagram.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

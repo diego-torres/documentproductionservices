@@ -1,7 +1,7 @@
 ﻿Namespace domain
     Public Class Request
 
-        Private _docType As DocType
+        Private _docType As String
         Private _destination As Destination
         Private _fileName As String
         Private _fileContent As String
@@ -12,12 +12,11 @@
         ''' Represents the extension file type for the received base64 encoded file. Will save the file with this extension. 
         ''' </summary>
         ''' <value>Extension of the destination file</value>
-        ''' <remarks>Only registered values on <see cref="dtorres.dps.dpkg.domain.DocType">DocType</see> are acceptable</remarks>
-        Public Property File_Type As DocType
+        Public Property File_Type As String
             Get
                 Return _docType
             End Get
-            Set(value As DocType)
+            Set(value As String)
                 _docType = value
             End Set
         End Property
@@ -94,19 +93,9 @@
     ''' </summary>
     ''' <remarks>Specifies the destinations where the file can be sent.</remarks>
     Public Enum Destination
-        FAX
-        PRINT
         EMAIL
         FTP
         SYSFOLDER
-    End Enum
-    ''' <summary>
-    ''' Possible value for file type.
-    ''' </summary>
-    ''' <remarks>Specifies the document type that has been encoded in base64</remarks>
-    Public Enum DocType
-        PDF
-        DOC
     End Enum
 End Namespace
 

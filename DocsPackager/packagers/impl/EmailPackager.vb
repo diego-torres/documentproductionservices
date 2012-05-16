@@ -37,7 +37,7 @@ Namespace packagers.impl
 
             'TODO: Pack attachment in email
             Dim bt64 As Byte() = System.Convert.FromBase64String(req.File)
-            Dim fileName As String = req.File_Name & "." & TranslateDocType(req.File_Type)
+            Dim fileName As String = req.File_Name & "." & req.File_Type
             Dim att As Attachment
             Dim ms As New MemoryStream()
 
